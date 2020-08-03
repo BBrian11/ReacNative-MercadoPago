@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        
+        <form method="POST">
+            <script
+             src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+             data-preference-id='<%= global.id %>'>
+            </script>
+            <script src="https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=619749190-6c474b2f-8fb3-4d57-ba7d-7e413eb9c55e"></script>
+          </form>
+          <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+          <script>
+              window.Mercadopago.setPublishableKey("APP_USR-2bfde4b2-71af-4413-8ada-1eecff189036");
+              Mercadopago.createToken(form, tokenHandler);
+    window.Mercadopago.getIdentificationTypes();
+    Mercadopago.getPaymentMethod(object, paymentMethodHandler);
+    object = { "bin" : bin }
+    object = {"payment_method_id": "visa"}
+    Mercadopago.getIdentificationTypes(identificationHandler);
+    <select  id="docType" data-checkout="docType"></select>
+    Mercadopago.getIssuers(paymentMethodId, issuersHandler);
+    Mercadopago.getInstallments({"bin": bin,"amount": amount}, installmentHandler);
+    
+          </script>
+          <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"> </script>
+        
+    </body>
+    
+</html>
